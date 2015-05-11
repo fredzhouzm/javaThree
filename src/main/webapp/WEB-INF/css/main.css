@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {background:#CCC;margin:0;}
+li {margin:10px 0px 0px 0px;width:150px;height:30px;text-align:center;float:left;list-style-type:none;}
+.titleDiv {margin:0 auto;width:100%;position:fixed;top:0px;left:0px;background: #F9F9F9;height:70px;z-index:99999;}
+.headDiv {margin-right:auto;margin-top:0px;width:1000px;height:70px;font-size:22px;font-weight:bold;}
+.welUser {margin-left:600px;margin-right:0px;margin-bottom:0px;text-align:right;font-size:12px;}
+.contentDiv {margin-right:auto;margin-top:20px;width:1000px;height:auto;}
+.firstForm {font-size:16px;font-weight:bold;background:#CCC;}
+.secondForm {font-size:14px;background:#FFF;}
+.blankheight {margin:0 auto;width:10px;height:40px;;margin-top:80px;}
+#lean_overlay {position: fixed;z-index:100;top: 0px;left: 0px;height:100%;width:100%;background: #000;display: none;}
+#modifyPanel,#addProOnePanel,#addProTwoPanel {width: 300px;padding: 15px 20px;background: #f3f6fa;-webkit-border-radius: 6px;-moz-border-radius: 6px;border-radius: 6px;-webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);-moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);}

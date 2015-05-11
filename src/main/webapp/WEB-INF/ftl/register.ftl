@@ -8,7 +8,6 @@
     <style type="text/css">
         div#registerDiv {position: absolute;left: 50%;top: 50%;margin:-280px 0 0 -190px;height: 700px;width: 320px;}
     </style>
-    <link rel="stylesheet" href="../css/style.css" type="text/css">
     <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="../css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="../css/bootstrap-datepicker.min.css" type="text/css">
@@ -57,7 +56,7 @@
         <div class="form-group">
             <label for="registerID" class="col-sm-4 control-label"><@spring.message 'text.userLoginName'/></label>
             <div class="col-sm-8">
-                <input type="text" value="${(user.accName)}" class="form-control" name="loginName" id="registerID" placeholder="<@spring.message 'plahdr.userLoginName'/>" required autofocus>
+                <input type="text" value="${(user.loginName)}" class="form-control" name="loginName" id="registerID" placeholder="<@spring.message 'plahdr.userLoginName'/>" required autofocus>
             </div>
         </div>
         <div class="form-group">
@@ -92,7 +91,7 @@
                     <div id="datetimepicker" class="input-group date datetimepicker">
                         <input type="text" value="${(user.birthdate)}" class="form-control" name="birthdate" id="registerBirthdate" placeholder="<@spring.message 'plahdr.birthDate'/>" readonly required></input>
                         <span class="input-group-addon">
-                            <i class="icon-th"></i>
+                            <i class="icon-calendar"></i>
                         </span>
                     </div>
                 </div>

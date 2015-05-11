@@ -7,7 +7,6 @@
     <style type="text/css">
         div#loginDiv {position: absolute;left: 50%;top: 50%;margin:-150px 0 0 -150px;height: 300px;width: 300px;}
     </style>
-    <link rel="stylesheet" href="../css/style.css" type="text/css">
     <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="../css/font-awesome.min.css" type="text/css">
     <script type="text/javascript" src="../JavaScript/jquery-2.1.3.min.js"></script>
@@ -18,7 +17,7 @@
         }
     </script>
 </head>
-<body background="#eee">
+<body>
 <div id="loginDiv">
     <form action="login.htm" method="post">
         <div style="color: #ff0000" class="alert alert-error">

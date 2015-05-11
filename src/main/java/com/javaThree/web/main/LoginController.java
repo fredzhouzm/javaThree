@@ -3,7 +3,8 @@ package com.javaThree.web.main;
 import com.javaThree.mybatis.model.PfmsUser;
 import com.javaThree.service.CommonService;
 import com.javaThree.web.domain.RegisterUser;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -23,7 +24,8 @@ import java.text.ParseException;
 @Controller
 @RequestMapping({"/main/"})
 public class LoginController {
-    protected static Logger logger = Logger.getLogger("loginController");
+
+    protected static Logger logger = LoggerFactory.getLogger("com.javaThree.web.main.LoginController");
     @Autowired
     public CommonService commonService;
 
@@ -32,7 +34,7 @@ public class LoginController {
 
     @RequestMapping({"/redirectLogin.htm"})
     public ModelAndView loginRedirect() {
-        logger.debug("Recieved request to redirectLogin.htm");
+        logger.info("Recieved request to redirectLogin.htm");
         ModelAndView mav = new ModelAndView();
         mav.setViewName("login");
         mav.addObject("user", new RegisterUser());
@@ -40,11 +42,12 @@ public class LoginController {
     }
 
     @RequestMapping({"/login.htm"})
-    public ModelAndView loginCheck(@Valid @ModelAttribute("user") RegisterUser user, BindingResult bindingResult, HttpSession session) {
-        logger.debug("Recieved request to login.htm");
+    public ModelAndView loginCheck(@ModelAttribute("user") RegisterUser user, BindingResult bindingResult, HttpSession session) {
+        logger.info("Recieved request to login.htm");
+        logger.info("user to string:"+user.toString());
         ModelAndView mav = new ModelAndView();
-        String loginName = user.getLoginName();
-        String loginPwd = user.getPassword();
+        String loginName = user.getLoginName().trim();
+        String loginPwd = user.getPassword().trim();
         if(this.commonService.checkUserNameIsExist(loginName)) {
             bindingResult.rejectValue("loginName", "error.notExist.loginName");
             mav.setViewName("login");
@@ -68,7 +71,7 @@ public class LoginController {
 
     @RequestMapping({"/register.htm"})
     public ModelAndView registerOp() {
-        logger.debug("Recieved request to register.htm");
+        logger.info("Recieved request to register.htm");
         ModelAndView mav = new ModelAndView();
         mav.setViewName("register");
         mav.addObject("user", new RegisterUser());
@@ -77,7 +80,8 @@ public class LoginController {
 
     @RequestMapping({"/registerCheck.htm"})
     public ModelAndView registerChk(@Valid @ModelAttribute("user") RegisterUser user, BindingResult bindingResult) throws ParseException {
-        logger.debug("Recieved request to registerCheck.htm");
+        logger.info("Recieved request to registerCheck.htm");
+        logger.info("user to string:"+user.toString());
         ModelAndView mav = new ModelAndView();
         if(bindingResult.hasErrors()) {
             mav.setViewName("register");
