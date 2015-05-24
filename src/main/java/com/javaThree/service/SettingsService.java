@@ -16,10 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Fred on 2015/5/1.
@@ -40,14 +37,14 @@ public class SettingsService {
     PersonalUtils personalUtils;
 
     @Transactional
-    public HashMap getIncomeSettings(int userId){
+    public LinkedHashMap getIncomeSettings(int userId){
         logger.info("Begin the method of getIncomeSettings");
 
-        HashMap<String,LevelOneProject> incomeNode = new HashMap<String, LevelOneProject>();
+        LinkedHashMap<String,LevelOneProject> incomeNode = new LinkedHashMap<String, LevelOneProject>();
         PfmsUsageOneExample pfmsUsageOneExample = new PfmsUsageOneExample();
 
         pfmsUsageOneExample.createCriteria().andCreaterIdEqualTo(userId).andTypeEqualTo("0");
-        pfmsUsageOneExample.setOrderByClause("CREATE_TIME");
+        pfmsUsageOneExample.setOrderByClause("ID ASC");
         List<PfmsUsageOne> pfmsUsageOneList=pfmsUsageOneMapper.selectByExample(pfmsUsageOneExample);
         if (false == pfmsUsageOneList.isEmpty()){
             for(PfmsUsageOne pfmsUsageOne:pfmsUsageOneList){
@@ -62,14 +59,14 @@ public class SettingsService {
     }
 
     @Transactional
-    public HashMap getExpendSettings(int userId){
+    public LinkedHashMap getExpendSettings(int userId){
         logger.info("Begin the method of getIncomeSettings");
 
-        HashMap<String,LevelOneProject> expendNode = new HashMap<String, LevelOneProject>();
+        LinkedHashMap<String,LevelOneProject> expendNode = new LinkedHashMap<String, LevelOneProject>();
         PfmsUsageOneExample pfmsUsageOneExample = new PfmsUsageOneExample();
 
         pfmsUsageOneExample.createCriteria().andCreaterIdEqualTo(userId).andTypeEqualTo("1");
-        pfmsUsageOneExample.setOrderByClause("CREATE_TIME");
+        pfmsUsageOneExample.setOrderByClause("ID ASC");
         List<PfmsUsageOne> pfmsUsageOneList = pfmsUsageOneMapper.selectByExample(pfmsUsageOneExample);
         if(false == pfmsUsageOneList.isEmpty()){
             for (PfmsUsageOne pfmsUsageOne:pfmsUsageOneList){

@@ -15,4 +15,6 @@ public class Constants {
     public final static String BY_BIRTH_DATE = "BIRTH_DATE";
     public final static String BY_MAIL_ADDRESS = "MAIL_ADDRESS";
     public final static String BY_USAGE_NUM = "USAGE_NUM";
+    public final static String BY_SELECT_INCOME_TYPE= "0";
+    public final static String BY_SELECT_EXPEND_TYPE= "1";
 }
