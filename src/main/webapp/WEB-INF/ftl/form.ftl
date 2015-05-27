@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="../css/main.css" type="text/css">
         <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
         <link rel="stylesheet" href="../css/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="../css/jquery-ui.css" type="text/css">
         <link rel="stylesheet" href="../css/select2.min.css" type="text/css">
     </head>
     <body>
@@ -53,11 +54,11 @@
                             </div>
                             <div class="col-md-4">
                                 <label for="dateIncome"><@spring.message 'text.valueDate'/>:</label>
-                                <div class="input-group">
+                                <div id="datetimepickerIncome" class="input-group date datetimepicker">
                                     <input type="text" class="form-control" id="dateIncome" placeholder="yyyy-MM-dd">
-                                <span class="input-group-addon">
-                                    <i class="icon-calendar"></i>
-                                </span>
+                                    <span class="input-group-addon">
+                                        <i class="icon-calendar"></i>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -106,11 +107,8 @@
                             </div>
                             <div class="col-md-4">
                                 <label for="dateExpend"><@spring.message 'text.valueDate'/>:</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" id="dateExpend" placeholder="yyyy-MM-dd">
-                                <span class="input-group-addon">
-                                    <i class="icon-calendar"></i>
-                                </span>
+                                <div id="datetimepickerExpend" class="input-group">
+                                    <input type="text" class="form-control" id="dateExpend" placeholder="yyyy-MM-dd" readonly>
                                 </div>
                             </div>
 
@@ -213,7 +211,23 @@
     </body>
     <script type="text/javascript" src="../JavaScript/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="../JavaScript/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../JavaScript/jquery-ui.js"></script>
     <script type="text/javascript" src="../JavaScript/select2.min.js"></script>
     <script type="text/javascript" src="../JavaScript/jquery.leanModal.min.js"></script>
     <script type="text/javascript" src="../JavaScript/form.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+        $('#dateExpend').datepicker({
+            currentText:'今天',
+            dateFormat:'yy-mm-dd',
+            dayNames:['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
+            dayNamesMin:['日','一','二','三','四','五','六'],
+            dayNamesShort:['周日','周一','周二','周三','周四','周五','周六'],
+            firstDay:1,
+            monthNames:['一月份','二月份','三月份','四月份','五月份','六月份','七月份','八月份','九月份','十月份','十一月份','十二月份'],
+            monthNamesShort:['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'],
+            showButtonPanel:true,
+            navigationAsDateFormat:true
+
+        })
+    </script>
 </html>
